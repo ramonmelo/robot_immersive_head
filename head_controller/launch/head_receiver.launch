@@ -1,0 +1,19 @@
+<launch>
+
+  <!-- Config -->
+  <rosparam file="$(find head_controller)/config/head_motor_cfg.yaml" command="load"/>
+
+  <!-- Servor Driver -->
+  <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
+    <rosparam file="$(find head_controller)/config/connection_cfg.yaml" command="load"/>
+  </node>
+
+  <!-- Spawner of servo topics -->
+  <node
+      name="controller_spawner"
+      pkg="dynamixel_controllers"
+      type="controller_spawner.py"
+      args="--manager=dxl_manager --port pan_tilt_port base neck1 neck2 eye"
+      output="screen"/>
+
+</launch>

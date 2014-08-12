@@ -1,0 +1,12 @@
+motor:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: motor
+    joint_speed: 2
+    motor:
+        id: 1
+        init: 512
+        min: 0
+        max: 1023

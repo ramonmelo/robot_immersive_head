@@ -1,0 +1,9 @@
+<launch>
+
+  <include file="$(find turtlebot_bringup)/launch/minimal.launch"/>
+
+  <include file="$(find head_controller)/launch/head_receiver.launch"/>
+
+  <include file="$(find vision_controller)/launch/publish_stereo.launch"/>
+
+</launch>

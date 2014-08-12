@@ -1,0 +1,29 @@
+<launch>
+
+  <node pkg="usb_cam" type="usb_cam_node" name="webcam_right">
+    <param name="video_device" type="str" value="/dev/video0" />
+
+    <param name="image_width" type="int" value="640" />
+    <param name="image_height" type="int" value="480" />
+
+    <param name="camera_frame_id" type="str" value="right_eye_frame" />
+  </node>
+
+  <node pkg="usb_cam" type="usb_cam_node" name="webcam_left">
+    <param name="video_device" type="str" value="/dev/video1" />
+
+    <param name="image_width" type="int" value="640" />
+    <param name="image_height" type="int" value="480" />
+
+    <param name="camera_frame_id" type="str" value="left_eye_frame" />
+  </node>
+
+  <node name="republish_right" pkg="image_transport" type="republish" args="compressed in:=/webcam_right/image_raw raw out:=/stereo/right" />
+
+  <node name="republish_left" pkg="image_transport" type="republish" args="compressed in:=/webcam_left/image_raw raw out:=/stereo/left" />
+
+  <node name="stereo_vision" pkg="vision_controller" type="stereo_vision.py" />
+
+  <node name="image_view" pkg="image_view" type="image_view" args="image:=/vision/stereo"/>
+
+</launch>

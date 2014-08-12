@@ -1,0 +1,8 @@
+<launch>
+
+  <!-- Head controller -->
+  <node name="view_controller" pkg="head_controller" type="head_controller.py">
+    <rosparam param="head_mapping" file="$(find head_controller)/config/head_mapping_cfg.yaml" command="load"/>
+  </node>
+
+</launch>

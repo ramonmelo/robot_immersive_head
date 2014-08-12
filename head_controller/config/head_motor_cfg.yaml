@@ -1,0 +1,48 @@
+eye:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: eye
+    joint_speed: 3
+    motor:
+        id: 6
+        init: 512
+        min: 0
+        max: 1023
+neck1:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: neck1
+    joint_speed: 1
+    motor:
+        id: 3
+        init: 512
+        min: 0
+        max: 1023
+neck2:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: neck2
+    joint_speed: 1
+    motor:
+        id: 2
+        init: 512
+        min: 0
+        max: 1023
+base:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: base
+    joint_speed: 1
+    motor:
+        id: 1
+        init: 512
+        min: 0
+        max: 1023

@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- <include file="$(find immersive)/launch/joy_controller.launch"/> -->
+  <include file="$(find head_controller)/launch/head_controller.launch"/>
+
+  <!-- Oculus Driver -->
+  <node pkg="oculus_driver" type="oculus_node" name="oculus_node">
+  </node>
+
+</launch>
