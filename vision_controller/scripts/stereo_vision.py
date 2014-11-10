@@ -26,8 +26,8 @@ def run():
   rospy.init_node("stereo_vision");
 
   # Subscribe for two "eyes"
-  rospy.Subscriber("/stereo/right", Image, right_image_callback)
-  rospy.Subscriber("/stereo/left", Image, left_image_callback)
+  rospy.Subscriber("/stereo/right/image_raw", Image, right_image_callback)
+  rospy.Subscriber("/stereo/left/image_raw", Image, left_image_callback)
 
   stereo_publisher = rospy.Publisher("/vision/stereo", Image, queue_size=1000)
 

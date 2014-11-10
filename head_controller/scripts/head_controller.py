@@ -52,8 +52,13 @@ def set_orientation( x, y, z ):
 
   z = min_max(
       -z,
-      -(np.pi / 2),
-      (np.pi / 2) )
+      -(np.pi / 2) - (np.pi / 4),
+      (np.pi / 2) + (np.pi / 4) )
+
+  print x
+  print y
+  print z
+  print "---------------"
 
   set_angle("base", x)
   set_angle("neck", y)
@@ -71,14 +76,12 @@ def orientation_callback(data):
   y = euler[0]
   z = euler[2]
 
-  rospy.loginfo( x )
-
   if center_view == None:
     center_view = x
 
-  # x -= center_view
+  x -= center_view
 
-  set_orientation( 0, 0, 0 )
+  set_orientation( x, y, z )
 
 def run():
   global head_mapping
@@ -99,7 +102,7 @@ def run():
       head_joints[motor] = rospy.Publisher("/%s/command" % motor, Float64, queue_size=10)
 
   rate = rospy.Rate(1)
-  time = 5
+  time = 1
 
   while True:
     # Update to center

@@ -6,6 +6,9 @@
   <node pkg="oculus_driver" type="oculus_node" name="oculus_node">
   </node>
 
-  <include file="$(find immersive)/launch/key_controller.launch"/>
+  <!-- <node pkg="image_view" type="image_view" name="image_view" args="image:=/vision/stereo"> -->
+  <!-- </node> -->
+
+  <!-- <include file="$(find immersive)/launch/key_controller.launch"/> -->
 
 </launch>

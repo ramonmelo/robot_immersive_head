@@ -18,9 +18,13 @@
     <param name="camera_frame_id" type="str" value="left_eye_frame" />
   </node>
 
-  <node name="republish_right" pkg="image_transport" type="republish" args="compressed in:=/webcam_right/image_raw raw out:=/stereo/right" />
+  <node name="republish_right" pkg="image_transport" type="republish" args="compressed in:=/webcam_right/image_raw raw out:=/stereo/right/image_raw" />
 
-  <node name="republish_left" pkg="image_transport" type="republish" args="compressed in:=/webcam_left/image_raw raw out:=/stereo/left" />
+  <node name="republish_left" pkg="image_transport" type="republish" args="compressed in:=/webcam_left/image_raw raw out:=/stereo/left/image_raw" />
+
+  <!-- <node name="relay_right" pkg="topic_tools" type="relay" args="/webcam_right/camera_info /stereo/right/camera_info"/> -->
+
+  <!-- <node name="relay_left" pkg="topic_tools" type="relay" args="/webcam_left/camera_info /stereo/left/camera_info"/> -->
 
   <node name="stereo_vision" pkg="vision_controller" type="stereo_vision.py" />
 
